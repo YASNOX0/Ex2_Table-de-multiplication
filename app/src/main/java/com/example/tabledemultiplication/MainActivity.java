@@ -1,6 +1,7 @@
 package com.example.tabledemultiplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,19 +13,27 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    EditText number ;
-    Button btn_reinitialiser , btn_quitter , btn_afficher;
+    EditText number;
+    Button btn_reinitialiser, btn_quitter , btn_afficher,btn_white, btn_pink, btn_lavender;;
     TextView table;
+    ConstraintLayout constraintLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         number = findViewById(R.id.number);
         btn_reinitialiser = findViewById(R.id.btn_reinitialiliser);
         btn_quitter = findViewById(R.id.btn_quitter);
         btn_afficher = findViewById(R.id.btn_afficher);
         table = findViewById(R.id.table);
-        
+        btn_white = findViewById(R.id.btn_white);
+        btn_pink = findViewById(R.id.btn_pink);
+        btn_lavender = findViewById(R.id.btn_lavender);
+        constraintLayout = findViewById(R.id.constraintLayout);
+
+
         btn_reinitialiser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -61,6 +70,27 @@ public class MainActivity extends AppCompatActivity {
                     finish();
                     startActivity(intent);
                 }
+            }
+        });
+
+        btn_white.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                constraintLayout.setBackgroundResource(R.color.white);
+            }
+        });
+
+        btn_pink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                constraintLayout.setBackgroundResource(R.color.Pink);
+            }
+        });
+
+        btn_lavender.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                constraintLayout.setBackgroundResource(R.color.Lavender);
             }
         });
     }
