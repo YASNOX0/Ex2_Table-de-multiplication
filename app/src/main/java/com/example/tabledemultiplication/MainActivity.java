@@ -47,13 +47,19 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 int nbr;
                 int res;
-                table.setText("");
                 if (!number.getText().toString().isEmpty()){
                     nbr = Integer.parseInt(number.getText().toString());
+                    table.setText("");
                     for (int i = 0; i < table.getMaxLines(); i++) {
                         res = nbr * i;
                         table.append(String.format("%d * %d = %d%n",nbr,i,res));
                     }
+                }
+                else{
+                    Toast.makeText(MainActivity.this, "Veuiller saisir un entier !!!", Toast.LENGTH_LONG).show();
+                    Intent intent = getIntent();
+                    finish();
+                    startActivity(intent);
                 }
             }
         });
